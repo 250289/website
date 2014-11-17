@@ -5,45 +5,48 @@ redirect_from:
   - /Mono_on_MacOS_X/
 ---
 
-Introduction to Mono on MacOS X
+Introdução ao Mono no MacOS X
 -------------------------------
 
-Mono has supported MacOS X since version 10.3 (Panther) and supports both Intel and PowerPC based versions with both 32 bits and 64 bits configuration supported.
+Mono suportou MacOS X desde a versão 10.3 (Panther) e suporta ambos, versões baseadas em intel e PowerPC com configurações suportadas em 32 e 64 bits
 
-You can use Mono on OSX to build server, console and GUI applications. Read below for the options available for GUI application development.
+Mono apoiou MacOS X desde a versão 10.3 (Panther) e suporta ambas as versões 32 bits e 64 bits de configuração suportados com base Intel e PowerPC.
 
-If you are interested in creating native GUI applications, use the [MonoMac](/docs/tools+libraries/libraries/monomac/) bindings and our MonoDevelop add-in. Read the description on [MonoMac](/docs/tools+libraries/libraries/monomac/) for more information on how to get started.
+Você pode usar o Mono no OSX para construir aplicativos de servidor, console e GUI. Leia abaixo as opções disponíveis para o desenvolvimento de aplicações GUI.
 
-Installing Mono on MacOS X
+Se você está interessado em criar aplicações GUI nativa, use o[MonoMac](/docs/tools+libraries/libraries/monomac/)
+ligações e nossa MonoDevelop suplemento. Leia a descrição de [MonoMac](/docs/tools+libraries/libraries/monomac/) para mais informações sobre como começar.
+
+Instalando Mono no MacOS X
 --------------------------
 
-You can use Mono either as a runtime to run existing application, or as an SDK to develop new applications with Mono.
+Você pode usar Mono tanto como em tempo de execução para executar o aplicativo existente, ou como um SDK para desenvolver novas aplicações com Mono.
 
-Visit the [download page](/download/) to find the latest MacOS X package. Run it and follow the instructions there, you can either get a basic runtime, or a complete runtime plus a software development kit.
+Visite o [página de download] (/download/) para encontrar o mais recente pacote de MacOS X. Execute-o e siga as instruções, você pode obter um tempo de execução de base, ou um tempo de execução completa, além de um kit de desenvolvimento de software.
 
-If you plan on developing applications with Mono, we suggest that you also [install the MonoDevelop IDE](http://monodevelop.com/download) after you install Mono.
+Se você está pensando em desenvolver aplicações com Mono, sugerimos que você também [instalar o MonoDevelop IDE] (http://monodevelop.com/download) depois de instalar o Mono.
 
-The Mono package includes:
+O pacote Mono inclui:
 
--   The Mono Runtime
+-   O Mono Runtime
 -   GUI Toolkits: Windows.Forms and Gtk# for OSX.
-    -   Note: the [MonoMac](/docs/tools+libraries/libraries/monomac/) GUI toolkit for native OSX GUI development is currently a separate download.
--   SDK: C#, Visual Basic compilers, assemblers and tools
--   XSP ASP.NET server
--   Manual pages.
+    -  Nota: o [MonoMac](/docs/tools+libraries/libraries/monomac/) kit de ferramentas GUI para o desenvolvimento nativo OSX GUI é atualmente um download separado.
+-  SDK: C #, Visual Basic compiladores, montadores e ferramentas
+-  XSP servidor ASP.NET
+-  Páginas de manual.
 
-This package installs as a framework to /Library/Framework (the same way the Java packages are installed). Symlinks are created for the executables in /usr/bin. If you'd like to access the mono *manpages* you'll have to add /Library/Frameworks/Mono.framework/Versions/Current/man to your *manpath*. The MacOS X Mono package does not include [Gtk#](/GtkSharp), XSP or mod_mono. These will have to be compiled from source.
+Este pacote instala como um quadro de /Library/Framework(da mesma maneira que os pacotes são instalados Java). Symlinks são criados para os executáveis em /usr/bin. Se você gostaria de acessar o mono *manpages* você vai ter que adicionar /Library/Frameworks/Mono.framework/Versions/Current/man para o seu *manpath*. O pacote MacOS X Mono não inclui [Gtk#](/GtkSharp), XSP ou mod_mono. These will have to be compiled from source.
 
-Our packages currently require Mono OSX 10.4 or better, for older versions, you will need to build from source code.
+Nossos pacotes atualmente requerem Mono OSX 10.4 ou melhor, para as versões mais antigas, você vai precisar para construir a partir do código fonte.
 
-Using Mono on MacOS X
+Usando Mono no MacOS X
 ---------------------
 
-At this point, you must use Mono from the command line, the usual set of commands that are available on other ports of Mono are available.
+Neste ponto, você deve usar Mono partir da linha de comando, o conjunto usual de comandos que estão disponíveis em outros portos do Mono estão disponíveis.
 
-To build applications you can use ["mcs"](/docs/about-mono/languages/csharp/), to run then you can use [mono](/docs/advanced/runtime/).
+Para construir aplicativos que você pode usar ["mcs"](/docs/about-mono/languages/csharp/), para executar, então você pode usar [mono](/docs/advanced/runtime/).
 
-From a Terminal shell, you can try it out:
+A partir de um shell de terminal, você pode experimentá-lo:
 
 ``` bash
 $ vi hello.cs
@@ -53,67 +56,67 @@ Hello, World
 $
 ```
 
-Most users would be using the [MonoDevelop IDE](http://monodevelop.com) to create their projects.
+A maioria dos usuários estariam usando o [MonoDevelop IDE](http://monodevelop.com) para criar seus projetos.
 
-You will have a choice of [GUI toolkits](/docs/gui/gui-toolkits/) for building your application, from pure cross platform, to Mac-specific using [MonoMac](/docs/tools+libraries/libraries/monomac/).
+Você terá a opção de [GUI toolkits](/docs/gui/gui-toolkits/) para a construção de sua aplicação, a partir de várias plataformas puro, a Mac-específica utilizando [MonoMac](/docs/tools+libraries/libraries/monomac/).
 
-32 and 64 bit support
+Suporte de 32 e 64 bits
 ---------------------
 
-The Mono packages published on this web site provide a 32-bit Mono VM.
+Os pacotes Mono publicados neste site fornecer uma Mono VM de 32 bits.
 
-Support for 64-bit VMs as of Mono 2.10 is only available if you build Mono from source code and install your own copy of the VM. In the future we will ship both mono and mono64 binaries for our users.
+Suporte para VMs de 64 bits como de Mono 2.10 só está disponível se você construir Mono partir do código fonte e instalar sua própria cópia da VM. No futuro nós enviaremos mono e binários mono64 para nossos usuários.
 
-The 64 bit support has a few limitations today which is why we have not entirely switched to it:
+O suporte de 64 bits tem algumas limitações hoje e é por isso que nós não inteiramente ligado a ele:
 
--   Our Windows.Forms implementation uses Carbon, and as such, it would not work with a 64-bit Mono.
--   MonoDevelop uses Carbon for its menu integration so it would not run on a 64-bit VM.
--   MonoMac bindings have not been ported to 64 bits.
+-  Nossa implementação Windows.Forms usa carbono e, como tal, não seria trabalhar com um 64-bit Mono.
+-  MonoDevelop usa Carbon em sua integração de menu para que ele não seria executado em um 64-bit VM.
+-  Ligações MonoMac não foram portados para 64 bits.
 
-Supporting 64-bit Mono across the board would also require us to ship a 64-bit Gtk+ stack and that would increase the download size for most users.
+Apoio 64-bit Mono em toda a linha exigiria também nos de enviar um 64-bit Gtk + pilha e que iria aumentar o tamanho do download para a maioria dos usuários.
 
-Building Client Applications
+Fazendo aplicações clientes
 ----------------------------
 
-There are a few choices to build client applications on OSX, you should pick the technology that better fits your goals, your choices are:
+Existem algumas opções para construir aplicações cliente no OSX, você deve escolher a tecnologia que melhor se adapta às suas metas, suas escolhas são:
 
 ||
-|Toolkit|Runs on Linux|Runs on Windows|Runs on Mac|Binding Style|License|Status|
-|[MonoMac](/docs/tools+libraries/libraries/monomac/)|no|no|yes|Strongly typed C# binding to Cocoa APIs|MIT X11|Actively developed, builds on the design lessons from [MonoTouch](http://monotouch.net) but still incomplete. This will be the new default binding for Mono on OSX. Separate download.|
-|Gtk#|yes|yes|yes|Strongly typed C# binding to the cross platform Gtk+ API. Applications look foreign on OSX.|LGPL v2|Actively developed, cross platform. Bundled with Mono.|
-|Windows.Forms|yes|yes|yes|Cross platform implementation of Microsoft's Windows.Forms. Applications look foreign on OSX.|MIT X11|The Windows.Forms API was frozen in time by Microsoft. Bundled with Mono.|
-|[MonObjc](http://www.monobjc.net)|no|no|yes|Binding to the native Cocoa APIs, but requires manual use of Objective-C selectors to work with, relatively thin wrapper around the underlying APIs.|LGPL v3|Actively developed. Separate download.|
-|CocoaSharp|no|no|yes|Binding to the native Cocoa APIs, but requires manual use of Objective-C selectors to work with, relatively thin wrapper around the underlying APIs.|MIT X11|No longer developed, no longer maintained, deprecated. Bundled with Mono.|
+|Conjunto de ferramentas | roda em Linux | Funciona em Windows | Roda em Mac | Estilo Binding | Licença | Status |
+|[MonoMac](/docs/tools+libraries/libraries/monomac/)|não|não|sim|Fortemente tipado C # ligação a APIs Cacau | MIT X11 | desenvolvido ativamente, baseia-se nas aulas de design de [MonoTouch](http://monotouch.net) mas ainda incompleto. Esta será a nova ligação para o Mono no OSX padrão. download separado.|
+|Gtk#|sim|sim|sim|Fortemente tipado C de ligação à plataforma cruzada Gtk + API #. Aplicações olhar estrangeiro sobre OSX |. LGPL v2 | desenvolvido ativamente, multiplataforma. Pacote com Mono.|
+|Windows.Forms|sim|sim|sim|Aplicação multiplataforma de Windows.Forms da Microsoft. Aplicações olhar estrangeiro sobre OSX |. MIT X11 | A API Windows.Forms foi congelada no tempo pela Microsoft. Pacote com Mono.|
+|[MonObjc](http://www.monobjc.net)|não|não|sim|A ligação com as APIs nativas do cacau, mas requer a utilização manual de seletores Objective-C para trabalhar com, envoltório relativamente fina em torno das APIs subjacentes |. LGPL v3 | desenvolvido ativamente. Download separado. |
+| CocoaSharp | não | não | sim | Ligação às APIs nativas de cacau, mas requer a utilização manual de seletores de Objective-C para trabalhar com, envoltório relativamente fina em torno das APIs subjacentes |. MIT X11 | Não é mais desenvolvido, não é mantida, preterido . Pacote com Mono. |
 
-Running Mono applications on MacOS X
+Executando aplicações Mono no MacOS X
 ------------------------------------
 
-Running applications on MacOS X is very similar to linux systems, from the terminal:
+A execução de aplicativos em MacOS X é muito semelhante a sistemas Linux, a partir do terminal:
 
-    mono myprogram.exe
+    mono meuPrograma.exe
 
-For GTK# applications, it's easiest to run them the same way but using *xterm* from X11.app
+Para GTK # aplicações, é mais fácil de executá-los da mesma forma, mas usando *xterm* de X11.app
 
-    A MacOS X specific Mono launcher was in development but its status is unclear today
+    A MacOS X lançador Mono específica estava em desenvolvimento, mas o seu estado não está claro hoje
 
 Windows.Forms
 -------------
 
-Mono's implementation of the System.Windows.Forms API is built on top of Carbon and can only run with Mono on 32 bit systems. The look and feel of System.Windows.Forms applications mimics the Windows style and does not currently render like a native OSX application.
+Implementação de Mono da API System.Windows.Forms é construído em cima de carbono e só pode ser executado com Mono em sistemas de 32 bits. O olhar ea sensação de aplicações system.windows.forms imita o estilo do Windows e atualmente não tornar como uma aplicação nativa OSX.
 
-Third Party Libraries
+Bibliotecas de Terceiros
 ---------------------
 
-[ObjC#](/archived/objcsharp "ObjCSharp") is a transparent two way bridge that allows the CLR to access the rich underlying ObjectiveC frameworks as well as providing direct access to the CLR frameworks from the ObjectiveC language.
+[ObjC#](/archived/objcsharp "ObjCSharp")é uma ponte de dois transparente forma que permite que o CLR para acessar os ricos quadros objectivec subjacentes, bem como proporcionar acesso directo aos quadros CLR da língua ObjectiveC.
 
-Uninstalling Mono on Mac OS X
+Desinstalar o Mono no Mac OS X
 -----------------------------
 
-Run this script in a terminal:
+Execute este script em um terminal:
 
     #!/bin/sh -x
 
-    #This script removes Mono from an OS X System.  It must be run as root
+    #Este script remove Mono de um sistema OS X. Ele deve ser executado como root
 
     rm -r /Library/Frameworks/Mono.framework
 
