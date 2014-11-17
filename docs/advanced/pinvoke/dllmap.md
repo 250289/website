@@ -5,55 +5,55 @@ redirect_from:
   - /DllMap/
 ---
 
-Overview
+Visão global
 --------
 
-DllMaps are used to map windows library names (.dll) to linux/unix library names (usually .so).
+DllMaps são usados para mapear nomes de biblioteca do Windows (.dll) para linux nomes de biblioteca / unix (usually .so).
 
-DllMaps are specfied in either the mono configuration file, or in assembly configuration files.
+DllMaps são especificado em qualquer arquivo de configuração mono, ou em arquivos de configuração de montagem.
 
-The \<dllmap\> is a directive that can be used directly in the \<configuration\> section.
+O \ <dllmap \> é uma directiva que pode ser usado diretamente no diretório \ <configuration \> seção.
 
-### Children
+### Crianças
 
-The \<dllmap\> directive can be further tuned using the \<dllentry\> directive.
+O \<dllmap\> directiva pode ser ainda mais sintonizado com a \<dllentry\> directiva.
 
-The \<dllentry\> directive can be used to map a specific dll/function pair to a different library and also a different function name. It should appear inside a dllmap element with only the dll attribute specified.
+O \<dllentry\> directiva pode ser utilizado para mapear um par dll/function específica para uma biblioteca diferente e também um nome de função diferente. Ele deve aparecer dentro de um elemento dllmap apenas com o atributo dll especificada.
 
-The dllentry element takes 3 attributes:
+O elemento DLLENTRY leva três atributos:
 
--   dll: This is the target library, where the function can be found.
+-   dll: Esta é a biblioteca de destino, onde a função pode ser encontrado.
 
--   name: This is the name of the fuction as it appears in the metadata: it is the name of the P/Invoke method.
+-   name: Este é o nome como a função de como ele aparece nos metadados: é o nome do método P/Invoke.
 
--   target: This is the name of the function to lookup instead of the name specified in the P/Invoke method.
+-   target: Este é o nome da função para pesquisa, em vez do nome especificado no método P/Invoke.
 
-Usage
+Uso
 -----
 
-You use the dllmap directive to map shared libraries referenced by P/Invoke in your assemblies to a different shared library.
+Você usar a diretiva dllmap para mapear bibliotecas compartilhadas referenciados por P/Invoke nas vossas assembléias para uma biblioteca compartilhada diferente.
 
-This is typically used to map Windows libraries to Unix library names. The dllmap element takes two attributes:
+Isso normalmente é usado para mapear as bibliotecas do Windows para nomes de biblioteca Unix. O elemento dllmap leva dois atributos:
 
--   dll: This should be the same string used in the DllImport attribute. This can be prefixed with **i:** to specify that name matching should be done in a case-insensitive fashion.
--   target: This should be the name of the library where the function can be found: this name should be suitable for use with the platform native shared library loading routines (dlopen etc.).
+-   dll: Esta deve ser a mesma corda usada no atributo DllImport. Isso pode ser prefixado com **i:** para especificar que o nome correspondente deve ser feito de uma forma case-insensitive.
+-   target: Este deve ser o nome da biblioteca onde a função pode ser encontrado: este nome deve ser adequado para uso com o nativo plataforma partilhada rotinas de biblioteca de carregamento(dlopen etc.).
 
-Note that later entries will override the entries defined earlier in the file.
+Note-se que as entradas posteriores irão substituir as entradas definidas no início do arquivo.
 
-In Mono releases after 1.1.18, both the dllmap and dllentry elements allow the following two attributes which make it easy to use a single configuration file and support multiple operating systems and architectures with different mapping requirements:
+Em Mono libera após 1.1.18, ambos os elementos dllmap e DLLEntry permitir que as duas seguintes atributos que a tornam fácil de usar um único arquivo de configuração e suporte a vários sistemas operacionais e arquiteturas com diferentes requisitos de mapeamento:
 
--   **os**: This is the name of the operating system for which the mapping should be applied. Allowed values are: linux, osx, solaris, freebsd, openbsd, netbsd, windows, aix, hpux.
--   **cpu** This is the name of the architecture for which the mapping should be applied. Allowed values are: x86, x86-64, sparc, ppc, s390, s390x, arm, mips, alpha, hppa, ia64.
--   **wordsize** you can use this to differentiate between 32 and 64 bit systems. The possible values are : 32 and 64.
+-   **os**: Este é o nome do sistema operacional para o qual o mapeamento deve ser aplicada. Os valores permitidos são: linux, osx, solaris, FreeBSD, OpenBSD, NetBSD, Windows, AIX, HPUX.
+-   **cpu** Este é o nome da arquitectura para o qual o mapeamento deve ser aplicada. Os valores permitidos são: x86, x86-64, SPARC, ppc, s390, s390x, braço, mips, alpha, hppa, ia64.
+-   **wordsize** você pode usar isso para diferenciar entre 32 e sistemas de 64 bits. Os valores possíveis são: 32 e 64.
 
-The attribute value for both attributes can be a comma-separated list of the allowed values. Additionally, the first character may be a '!' to reverse the meaning. An attribute value of "!windows,osx", for example, would mean that the entry is considered on all operating systems, except on Windows and OS X.
+O valor de atributo para ambos os atributos pode ser uma lista de valores permitidos, separados por vírgulas. Além disso, o primeiro caractere pode ser um '!' para inverter o sentido. Um valor de atributo de "! Janelas, osx", por exemplo, significa que a entrada é considerado em todos os sistemas operacionais, exceto no Windows e OS X.
 
-No spaces are allowed in any part of the value.
+Não são permitidos espaços em qualquer parte do valor.
 
-Example
+Exemplo
 =======
 
-The following example maps references to the \`cygwin1.dll' shared library to the \`libc.so.6' file:
+O exemplo a seguir mapeia as referências ao \`cygwin1.dll' shared library to the \`libc.so.6' arquivo:
 
 ``` xml
     <configuration>
@@ -61,14 +61,14 @@ The following example maps references to the \`cygwin1.dll' shared library to th
     </configuration>
 ```
 
-This one maps the following C# method:
+Este mapeia o seguinte método C#:
 
 ``` csharp
     [DllImport ("libc")]
     static extern void somefunction ();
 ```
 
-to a different function in libdifferent.so, but to the same function in the library **libanother.so** when running under the Solaris and FreeBSD operating systems.
+Para uma função diferente em libdifferent.so, mas para a mesma função na biblioteca **libanother.so** quando rodando sob os sistemas operacionais Solaris e FreeBSD.
 
 ``` xml
     <configuration>
@@ -79,7 +79,7 @@ to a different function in libdifferent.so, but to the same function in the libr
     </configuration>
 ```
 
-Common Problems
+Problemas comuns
 ---------------
 
 -   [DllNotFoundException](/docs/advanced/pinvoke/dllnotfoundexception/)
