@@ -10,8 +10,6 @@ Introdução ao Mono no MacOS X
 
 Mono suportou MacOS X desde a versão 10.3 (Panther) e suporta ambos, versões baseadas em intel e PowerPC com configurações suportadas em 32 e 64 bits
 
-Mono apoiou MacOS X desde a versão 10.3 (Panther) e suporta ambas as versões 32 bits e 64 bits de configuração suportados com base Intel e PowerPC.
-
 Você pode usar o Mono no OSX para construir aplicativos de servidor, console e GUI. Leia abaixo as opções disponíveis para o desenvolvimento de aplicações GUI.
 
 Se você está interessado em criar aplicações GUI nativa, use o[MonoMac](/docs/tools+libraries/libraries/monomac/)
